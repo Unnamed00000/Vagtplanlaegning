@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#2f9f93">
+    <meta name="description" content="PWA для быстрого составления месячного графика смен.">
+    <title>Smartplan PWA</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icons/icon.svg">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <p class="eyebrow">Smartplan demo</p>
+        <h1>Vagtplanl&aelig;gning - gjort nemt.</h1>
+        <p>Планируйте месяц, назначайте сотрудников и подтверждайте смены даже офлайн.</p>
+      </header>
+
+      <main>
+        <section class="planner" aria-label="Месячный график">
+          <div class="planner-top">
+            <div>
+              <h2>M&aring;nedsplan</h2>
+              <p id="monthRange">Месяц</p>
+            </div>
+            <div class="month-controls" aria-label="Выбор месяца">
+              <button class="ghost-button" id="prevMonthButton" type="button" aria-label="Предыдущий месяц">&lsaquo;</button>
+              <button class="ghost-button" id="todayButton" type="button">Сегодня</button>
+              <button class="ghost-button" id="nextMonthButton" type="button" aria-label="Следующий месяц">&rsaquo;</button>
+              <button class="ghost-button" id="resetButton" type="button">Сброс</button>
+            </div>
+          </div>
+
+          <div class="month-grid" id="monthGrid"></div>
+
+          <div class="planner-actions">
+            <button class="primary-button" id="approveButton" type="button">
+              <span class="checkmark">✓</span>
+              Godkend
+            </button>
+          </div>
+        </section>
+
+        <section class="tools" aria-label="Инструменты планирования">
+          <form class="shift-form" id="shiftForm">
+            <h2>Новая смена</h2>
+            <label>
+              Дата
+              <input id="dateInput" name="date" type="date" required>
+            </label>
+            <div class="time-row">
+              <label>
+                Начало
+                <input id="startInput" name="start" type="time" value="08:00" required>
+              </label>
+              <label>
+                Конец
+                <input id="endInput" name="end" type="time" value="16:00" required>
+              </label>
+            </div>
+            <label>
+              Сотрудник
+              <input id="nameInput" name="name" type="text" value="Anna" maxlength="24" required>
+            </label>
+            <button class="secondary-button" type="submit">Добавить смену</button>
+          </form>
+
+          <aside class="summary">
+            <div>
+              <p class="metric-label">Смены</p>
+              <strong id="shiftCount">0</strong>
+            </div>
+            <div>
+              <p class="metric-label">Часы</p>
+              <strong id="hourCount">0</strong>
+            </div>
+            <div>
+              <p class="metric-label">Статус</p>
+              <strong id="statusText">Черновик</strong>
+            </div>
+          </aside>
+        </section>
+
+        <section class="promo" aria-label="Промо">
+          <div class="promo-preview" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div>
+            <p>Pr&oslash;v Smartplan gratis i 30 dage</p>
+            <button id="installButton" type="button" hidden>Установить PWA</button>
+          </div>
+          <a href="#shiftForm" aria-label="Подробнее">Подробнее</a>
+        </section>
+      </main>
+    </div>
+
+    <nav class="bottom-nav" aria-label="Основная навигация">
+      <a href="#" aria-current="page">План</a>
+      <a href="#shiftForm">Смена</a>
+      <a href="#monthGrid">Месяц</a>
+    </nav>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js" defer></script>
+  </body>
+</html>

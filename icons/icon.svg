@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Smartplan">
+  <rect width="512" height="512" rx="112" fill="#209f96"/>
+  <path fill="#ffffff" d="M152 120h208a48 48 0 0 1 48 48v184a48 48 0 0 1-48 48H152a48 48 0 0 1-48-48V168a48 48 0 0 1 48-48Zm0 64v56h64v-56h-64Zm88 0v56h64v-56h-64Zm88 0v56h32v-56h-32ZM152 264v56h64v-56h-64Zm88 0v56h64v-56h-64Zm88 0v56h32v-56h-32Z" opacity=".95"/>
+  <path fill="#79d7b8" d="m221 361-53-53 29-29 24 24 91-91 29 29-120 120Z"/>
+</svg>
